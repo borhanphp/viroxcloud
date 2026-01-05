@@ -5,9 +5,8 @@ import { Users, Globe, Award, Linkedin, Twitter } from "lucide-react";
 
 export default function AboutPage() {
     const team = [
-        { name: "Borhan Uddin", role: "CEO & Co-Founder", image: null },
-        { name: "Shariful Islam", role: "CTO & Security Engineer", image: null },
-        { name: "Shimantho", role: "Co-Founder & Head of Customer Success", image: null },
+        { name: "Borhan Uddin", role: "CEO, CTO & Co-Founder", image: null },
+        { name: "Shafiqul Islam", role: "Co-Founder & Head of Customer Success", image: null },
         { name: "Ayeen Uddin Showrav", role: "COO & QA Lead", image: null },
     ];
 
