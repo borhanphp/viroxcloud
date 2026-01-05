@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --radius-radius: var(--radius);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Brand Colors - Navy/Indigo/White */
+  /* Wrapped in hsl() for Tailwind v4 compatibility */
+  --background: hsl(210 40% 98%);
+  /* Light Gray Blue */
+  --foreground: hsl(222 47% 11%);
+  /* Deep Navy */
+
+  --primary: hsl(221 83% 53%);
+  /* Vivid Blue */
+  --primary-foreground: hsl(210 40% 98%);
+
+  --secondary: hsl(217 33% 17%);
+  /* Darker Navy */
+  --secondary-foreground: hsl(210 40% 98%);
+
+  --accent: hsl(262 83% 58%);
+  /* Purple Accents */
+  --accent-foreground: hsl(210 40% 98%);
+
+  --muted: hsl(217 19% 27%);
+  --muted-foreground: hsl(215 20% 65%);
+
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(222 47% 11%);
+
+  --border: hsl(214 32% 91%);
+  --input: hsl(214 32% 91%);
+
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: hsl(222 47% 11%);
+  /* Deep Navy */
+  --foreground: hsl(210 40% 98%);
+
+  --primary: hsl(217 91% 60%);
+  --primary-foreground: hsl(222 47% 11%);
+
+  --secondary: hsl(217 19% 27%);
+  --secondary-foreground: hsl(210 40% 98%);
+
+  --muted: hsl(217 19% 27%);
+  --muted-foreground: hsl(215 20% 65%);
+
+  --card: hsl(217 33% 17%);
+  --card-foreground: hsl(210 40% 98%);
+
+  --border: hsl(217 19% 27%);
+  --input: hsl(217 19% 27%);
+}
+
+/* Base styles */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Utilities */
+@utility glass {
+  @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-sm;
+}
+
+@utility glass-card {
+  @apply bg-white/80 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all duration-300;
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
